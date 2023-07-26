@@ -5,7 +5,10 @@ import 'package:blood_nepal/ui/signup.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
+import '../../../SingleTonClasses/usersPageDesign.dart';
 import '../../usersList.dart';
+import '../../widgets/dataUsesFromApi.dart';
+import '../devlopers/developers.dart';
 
 
 
@@ -97,6 +100,7 @@ class _SliderPageState extends State<SliderPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Theme.of(context).primaryColor,
         actions: <Widget>[
@@ -187,7 +191,12 @@ class _SliderPageState extends State<SliderPage> {
                       // Change width
                       height: 130,
                       // Change height
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => MyApp()));
+                      },
                       color: Colors.deepOrange,
                       padding: EdgeInsets.all(20.0),
                       shape: UnderlineInputBorder(),
@@ -253,7 +262,7 @@ class _SliderPageState extends State<SliderPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (_) => MyUsersListPage()));
+                                builder: (_) => UsersDetails()));
                       },
                       color: Colors.deepOrange,
                       padding: EdgeInsets.all(20.0),
@@ -330,19 +339,19 @@ class _MyTabPageState extends State<MyTabPage> {
           // All orders icon
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
-            label: 'الكل',
+            label: 'المتبرعون',
           ),
 
           // Pending orders icon
           BottomNavigationBarItem(
             icon: Icon(Icons.hourglass_bottom),
-            label: 'قيد الانتظار',
+            label: 'المستشفيات',
           ),
 
           // Completed orders icon
           BottomNavigationBarItem(
             icon: Icon(Icons.check_circle),
-            label: 'منتهية',
+            label: 'المستخدمون',
           ),
         ],
       ),
